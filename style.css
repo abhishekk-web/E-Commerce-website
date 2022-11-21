@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+*   {
+    box-sizing: border-box;
+}
+
+/* body  {
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+} */
+
+.navflex {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    border: 2px solid black;
+    height: 40px;
+    text-align: center;
+}
+
+.cart-nav-button {
+    color: white;
+    text-decoration: none;
+    border: 3px solid aqua;
+    border-radius: 4px;
+    margin-left: 180px;
+    width: 200px;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.nav-cart-items{
+    color: aqua;
+    margin-left: 240px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    /* border: 2px solid white; */
+    width: 20px;
+    height: 50px;
+}
+
+.border-cart-nav {
+    /* border: 2px solid white; */
+    margin-left: 20px;
+    margin-top: 20px;
+    /* width: 200px;; */
+}
+
+.flex-container{
+
+    /* border: 2px solid white; */
+    background-color: black;
+    width: 100%;
+    display: flex;
+
+}
+
+.navli {
+    border: 2px solid black;
+    margin-left: 300px;
+}
+
+.navlink{
+
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+
+}
+
+    /* after nav */
+
+.generic-container {
+
+    background-color: grey;
+    border: 2px solid black;
+    height: 300px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+
+}    
+
+.generic-text {
+
+    color: white;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 100px;
+
+}
+
+/* After gen */
+
+.aftergen {
+
+    border: 2px solid white;
+    text-align: center;
+    height: 150px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+
+}
+
+.aftergen-header {
+
+    font-size: 40px;
+    font-family: "Metal Mania";
+    margin-top: 50px;
+
+}
+
+/* music cart */
+
+/* .music-cart-container{
+    border: 2px solid black;
+} */
+
+.first-music-cart {
+    display: flex;
+    justify-content: space-around;
+}
+
+.second-music-cart {
+    display: flex;
+    /* border: 2px solid black; */
+    justify-content: space-around;
+    width: 500px;
+    margin-top: 20px;
+}
+.flex-music-cart {
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+    height: 100px;
+}
+
+.price-text{
+
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    height: 40px;
+
+}
+
+.btn-cart {
+    height: 40px;
+    margin-top: 5px;
+    background-color: #56CCF2;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+.btn-cart:hover{
+    background-color: darkcyan;
+    color: white;
+}
+
+.third-music-cart {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    height: 300px;
+}
+
+.image {
+
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+
+}
+
+.thirdimage {
+
+    height: 300px;
+    width: 400px;
+    margin-bottom: 200px;
+
+}
+
+.albumtext {
+
+    display: flex;
+    font-weight: bold;
+    font-size: 30px;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+    margin-top: 20px;
+
+}
+
+/* see the cart button */
+
+.see-the-cart-btn{
+
+    height: 50px;
+    margin-top: 5px;
+    color: #56CCF2;
+    background-color: grey;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    width: 150px;
+    font-size: 20px;
+
+}
+
+.see-the-cart {
+    /* border: 2px solid black; */
+    text-align: center;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+/* bottom bar */
+
+.bottom-bar-container {
+
+    background-color: #56CCF2;
+    height: 100px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.bottom-bar-text {
+    color: white;
+    margin-top: 15px;
+    font-size: 50px;
+    margin-left: 100px;
+    /* border: 2px solid black; */
+}
+
+.fonts {
+
+   size: 100px;
+   margin-right: 20px;
+   /* border: 2px solid black; */
+   margin-left: 20px;
+   height: 50px;
+   margin-top: 20px;
+   transition-duration: 0.4s;
+   width: 75px;
+   margin-right: 10px;
+
+}
+
+.bottomflex {
+    /* border: 2px solid black; */
+    margin-right: 100px;
+    display: flex;
+    /* justify-content: space-around; */
+    width: 400px;
+}
+
+.button-links {
+    text-decoration: none;
+    color: white;
+}
+
+.see-the-cart-button-links {
+    text-decoration: none;
+    color: #56CCF2;
+}
+
+.fonts:hover{
+    background-color: darkcyan;
+}
