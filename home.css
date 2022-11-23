@@ -35,11 +35,6 @@
     /* margin-top: 20px; */
     font-size: 25px;
     height: 35px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.cart-nav-button.active {
-    transform: translateX(-100px);
 }
 
 .nav-cart-items{
@@ -90,8 +85,8 @@
 .generic-container {
 
     background-color: grey;
-    border: 2px solid black;
-    height: 300px;
+    /* border: 2px solid black; */
+    height: 450px;
     border-bottom: none;
     border-left: none;
     border-right: none;
@@ -102,12 +97,56 @@
 
     color: white;
     text-align: center;
-    margin-top: 120px;
+    /* margin-top: 120px; */
     font-size: 100px;
+    /* border: 2px solid black; */
 
 }
 
-/* After gen */
+.header-div {
+    border: 2px solid grey;
+    height: 200px;
+}
+
+.generic-div {
+    /* border: 2px solid black; */
+    height: 100px;
+}
+
+.button-generic {
+
+    height: 65px;
+    width: 275px;
+    margin-left: 600px;
+    background-color: grey;
+    border: 1px solid aqua;
+    margin-bottom: 100px;
+
+}
+
+.generic-font {
+
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    
+}
+
+.play-button-div {
+    /* border: 2px solid black; */
+    text-align: center;
+}
+
+.button-background {
+    background-color: grey;
+    border: none;
+}
+
+.button-background:hover {
+    background-color: darkgray;
+}
+
+/* after gen */
 
 .aftergen {
 
@@ -128,113 +167,73 @@
 
 }
 
-/* music cart */
+/* table of tours */
 
-/* .music-cart-container{
+/* .table-container {
+
     border: 2px solid black;
+
 } */
 
-.first-music-cart {
-    display: flex;
-    justify-content: space-around;
-}
-
-.second-music-cart {
-    display: flex;
+.tours-table{
     /* border: 2px solid black; */
-    justify-content: space-around;
-    width: 500px;
-    margin-top: 20px;
-}
-.flex-music-cart {
-    display: flex;
-    justify-content: space-around;
-    /* border: 2px solid black; */
-    height: 100px;
+    text-align: left;
+    margin-left: 300px;
+    width: 800px;
 }
 
-.price-text{
+.tour-date {
 
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 10px;
-    /* border: 2px solid black; */
-    height: 40px;
-
-}
-
-.btn-cart {
-    height: 40px;
-    margin-top: 5px;
-    background-color: #56CCF2;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition-duration: 0.4s;
-}
-
-.btn-cart:hover{
-    background-color: darkcyan;
-    color: white;
-}
-
-.third-music-cart {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    /* border: 2px solid black; */
-    height: 300px;
-}
-
-.image {
-
-    height: 300px;
-    width: 400px;
-    object-fit: cover;
-
-}
-
-.thirdimage {
-
-    height: 300px;
-    width: 400px;
-    margin-bottom: 200px;
-
-}
-
-.albumtext {
-
-    display: flex;
-    font-weight: bold;
-    font-size: 30px;
-    justify-content: space-around;
-    /* border: 2px solid black; */
-    margin-top: 20px;
-
-}
-
-/* see the cart button */
-
-.see-the-cart-btn{
-
+    border-bottom: 1px solid black;
+    width: 125px;
     height: 50px;
-    margin-top: 5px;
-    color: #56CCF2;
-    background-color: grey;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    width: 150px;
-    font-size: 20px;
+    text-align: center;
 
 }
 
-.see-the-cart {
-    /* border: 2px solid black; */
+.tour-location {
+
+    border-bottom: 1px solid black;
     text-align: center;
-    height: 100px;
-    margin-bottom: 50px;
+    color: grey;
+
+}
+
+.tour-stage {
+
+    border-bottom: 1px solid black;
+    text-align: center;
+    width: 400px;
+    color: grey;
+ 
+}
+
+.tour-button {
+
+    border-bottom: 1px solid black;
+    text-align: center;
+    width: 200px;
+
+}
+
+.tour-button-link {
+
+   text-decoration: none;
+   color: white;
+   text-align: center;
+   font-size: medium;
+   font-weight: bold;
+        
+}
+
+.button-color-tour {
+
+    background-color: #56CCF2;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    width: 150px;
+
 }
 
 /* bottom bar */
@@ -293,98 +292,8 @@
     background-color: darkcyan;
 }
 
-/* side nav bar */
+.space-before-bottom {
 
-#nav {
-    background-color: white;
-    border: 2px solid black;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 74vh;
-    width: 250px;
-    padding: 2rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    margin-top: 88px;
-}
-
-#nav.active {
-    transform: translateX(0);
-}
-
-#nav ul {
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-}
-
-#nav ul li {
-    padding: 2rem 0;;
-}
-
-#nav a {
-    color: black;
-    text-decoration: none;
-}
-
-
-.nav-side {
-
-    display: flex;
-    color: black;
+    height: 100px;
 
 }
-
-.x-button {
- margin-left: 120px;
- height: 30px;
- margin-top: 15px;
-}
-
-.headers-cart {
-    color: black;
-    display: flex;
-}
-
-.item-header {
-    font-size:17px;
-    border-bottom: 1px solid black;
-}
-
-.price-header {
-    font-size: 17px;
-    margin-left: 10px;
-    border-bottom: 1px solid black;
-}
-
-.quantity-header {
-    font-size: 17px;
-    margin-left: 10px;
-    border-bottom: 1px solid black;
-}
-
-.total-nav {
-
-    display: flex;
-    margin-left: 80px;
-
-}
-
-.dollar-nav {
-    margin-left: 15px;
-}
-
-.purchase-nav {
-    background-color: aqua;
-    border: none;
-    height: 40px;
-    border-radius: 4px;
-    margin-left: 50px;
-    margin-top: 10px;
-}
-
-.purchase-nav:hover {
-    background-color: darkcyan;
-}
-
