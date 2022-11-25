@@ -15,6 +15,41 @@ closed.addEventListener("click", () => {
 
 });
 
+// notification script
+
+const buttons = document.getElementById("buttons");
+const container = document.getElementById("container");
+
+// buttons.addEventListener("click", ()=>{
+//     createNotification();
+// })
+
+
+function createNotification() {
+    const notif = document.createElement("div");
+    notif.classList.add("toast");
+
+    notif.innerText = "item is successfully added";
+
+    container.appendChild(notif);
+
+    setTimeout(()=> {
+        notif.remove();
+    }, 3000);
+}
+
+function noCreateNotification() {
+    const notif = document.createElement("div");
+    notif.classList.add("toast");
+
+    notif.innerText = "item is already in the cart";
+
+    container.appendChild(notif);
+
+    setTimeout(()=> {
+        notif.remove();
+    }, 3000);
+}
 // add to cart 
 
 if(document.readyState == 'loading') {
@@ -61,6 +96,7 @@ function quantityChanged(event) {
         input.value = 1;
     }
     updateCartTotal();
+    
 }
 
 function addToCartClicked(event) {
@@ -72,6 +108,8 @@ function addToCartClicked(event) {
     console.log(title, price, imageSrc);
     addItemToCart(title, price, imageSrc);
     updateCartTotal();
+    // createNotification()
+    
 }
 
 function addItemToCart(title, price, imageSrc) {
@@ -80,7 +118,7 @@ function addItemToCart(title, price, imageSrc) {
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
     for(var i=0; i<cartItemNames.length; i++){
         if(cartItemNames[i].innerText == title) {
-            alert("This item is already added to the cart");
+            noCreateNotification();
             return;
         }
     }
@@ -99,6 +137,7 @@ function addItemToCart(title, price, imageSrc) {
 </div>`;
 cartRow.innerHTML = cartRowContents;
 cartItems.append(cartRow);
+createNotification();
 }
 
 

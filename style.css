@@ -419,3 +419,29 @@
     background-color: darkcyan;
 }
 
+/* notification */
+
+#buttons-cart {
+    background-color: rebeccapurple;
+    color: white;
+    font-family: inherit;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+#container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.toast {
+
+    background-color: rebeccapurple;
+    border-radius: 5px;
+    color: #fff;
+    padding: 2rem;
+    margin: 1rem;
+        
+}
