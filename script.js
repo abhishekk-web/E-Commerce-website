@@ -50,6 +50,33 @@ function noCreateNotification() {
         notif.remove();
     }, 3000);
 }
+
+function buyCart() {
+    const notif = document.createElement("div");
+    notif.classList.add("toast");
+
+    notif.innerText = "Thank you for shopping";
+
+    container.appendChild(notif);
+
+    setTimeout(()=> {
+        notif.remove();
+    }, 3000);
+}
+
+function noItem() {
+    const notif = document.createElement("div");
+    notif.classList.add("toast");
+
+    notif.innerText = "Please check, There is no item in the cart";
+
+    container.appendChild(notif);
+
+    setTimeout(()=> {
+        notif.remove();
+    }, 3000);
+}
+
 // add to cart 
 
 if(document.readyState == 'loading') {
@@ -77,6 +104,14 @@ function ready() {
     for(var i=0;i< addToCartButtons.length; i++){
         var button = addToCartButtons[i];
         button.addEventListener('click', addToCartClicked)
+    }
+    
+    // purchase
+
+    var purchaseItem = document.getElementsByClassName("purchase-nav");
+    for(var i=0; i< purchaseItem.length; i++){
+        var inputs = purchaseItem[i];
+        inputs.addEventListener('click', purchaseItemCart);
     }
     
 
@@ -157,4 +192,17 @@ function updateCartTotal() {
     }
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('dollar-nav')[0].innerText = '$' + total;
+}
+
+// notification of purchase
+
+function purchaseItemCart() {
+    var purchase = document.getElementsByClassName("cart-items")[0];
+    var cartRows = purchase.getElementsByClassName('cart-flex');
+    if(cartRows.length >0) {
+        buyCart();
+    }
+    else{
+        noItem();
+    }
 }
