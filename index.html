@@ -27,6 +27,7 @@
 
             <!---------------- nav side bar --------------->
 
+    <div class="height">    
         <nav id="nav">
 
             <div class="nav-side">
@@ -43,6 +44,34 @@
                 <h1 class="quantity-header">QUANTITY</h1>
 
             </div>
+        <div class="cart-items">
+            <div class="cart-flex">
+                <div>
+                    <p class="cart-item-title">Album 1</p>
+                    <img class="cart-item-image" src="https://images.unsplash.com/photo-1619983081593-e2ba5b543168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljJTIwYWxidW0lMjBwb3N0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" height="50" width="50">
+                </div>
+                <div class="cart-price-bottom">
+                    <p class="cart-price">$12.99</p>
+                </div>
+                <div class="flex-carts">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button type="button" class="btn-danger">X</button>
+                </div>
+            </div>
+            <div class="cart-flex">
+                <div>
+                    <p class="cart-item-title">T-Shirt</p>
+                    <img class="cart-item-image" src="https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHQlMjBzaGlydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" height="50" width="50">
+                </div>
+                <div class="cart-price-bottom">
+                    <p class="cart-price">$19.99</p>
+                </div>
+                <div class="flex-carts">
+                    <input class="cart-quantity-input" type="number" value="2">
+                    <button type="button" class="btn-danger">X</button>
+                </div>
+            </div>
+        </div>
 
             <div class="total-nav">
 
@@ -61,7 +90,7 @@
             </div>
 
         </nav>
-
+    </div>    
           </div>
         </div>
 
@@ -87,46 +116,44 @@
         <!----------------- Music cart ---------------->
 
         <div class="music-cart-container">
-
-            <div class="albumtext">
-                <p class="shop-item-title">Album 1</p>
-                <p class="shop-item-title">Album 2</p>
-            </div>
-
-            <div class="first-music-cart">
-                <img class="image" src="https://images.unsplash.com/photo-1619983081593-e2ba5b543168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljJTIwYWxidW0lMjBwb3N0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2ljJTIwYWxidW0lMjBwb3N0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
-            </div>
-            <div class="flex-music-cart">
-                <div class="second-music-cart">
-                    <p class="price-text">$12.99</p>
-                    <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
+            <div class="two-flex">
+                <div class="albumtext">
+                    <p class="shop-item-title">Album 1</p>
+                    <img class="image" src="https://images.unsplash.com/photo-1619983081593-e2ba5b543168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljJTIwYWxidW0lMjBwb3N0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    <div class="second-music-cart">
+                        <p class="price-text">$12.99</p>
+                        <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
+                    </div>                
                 </div>
-                <div class="second-music-cart">
-                    <p class="price-text">$14.99</p>
-                    <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
-                </div>
-            </div>
-            <div class="albumtext">
-                <p class="shop-item-title">Album 3</p>
-                <p class="shop-item-title">Album 4</p>
-            </div>
-            <div class="third-music-cart">
-                <img class="image" src="https://media.istockphoto.com/id/1395337634/photo/image-of-old-fashioned-vintage-vinyl-record-player-isolated-over-dark-green-background.jpg?b=1&s=170667a&w=0&k=20&c=aEwp0dsdg9iNmsZcf6yplCQQjFv2Nx7CRr13fXiWCH4=" alt="">
-                <img class="image" src="https://media.istockphoto.com/id/172167229/photo/hifi.jpg?b=1&s=170667a&w=0&k=20&c=FKub81QSngckFfk6ZFUqFmGbvYF_tMakZ8kL8xwXfNM=" alt="">
-            </div>
 
-            <div class="flex-music-cart">
-                <div class="second-music-cart">
-                    <p class="price-text">$9.99</p>
-                    <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
-                </div>
-                <div class="second-music-cart">
-                    <p class="price-text">$19.99</p>
-                    <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
+                <div class="albumtext">
+                    <p class="shop-item-title">Album 2</p>
+                    <img class="image" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2ljJTIwYWxidW0lMjBwb3N0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    <div class="second-music-cart">
+                        <p class="price-text">$14.99</p>
+                        <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
+                    </div>
                 </div>
             </div>
-
+            <div class="two-flex">
+                <div class="albumtext">    
+                    <p class="shop-item-title">Album 3</p>
+                    <img class="image" src="https://media.istockphoto.com/id/1395337634/photo/image-of-old-fashioned-vintage-vinyl-record-player-isolated-over-dark-green-background.jpg?b=1&s=170667a&w=0&k=20&c=aEwp0dsdg9iNmsZcf6yplCQQjFv2Nx7CRr13fXiWCH4=" alt="">
+                    <div class="second-music-cart">
+                        <p class="price-text">$9.99</p>
+                        <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
+                    </div>
+                </div>
+                <div class="albumtext">
+                    <p class="shop-item-title">Album 4</p>
+                    <img class="image" src="https://media.istockphoto.com/id/172167229/photo/hifi.jpg?b=1&s=170667a&w=0&k=20&c=FKub81QSngckFfk6ZFUqFmGbvYF_tMakZ8kL8xwXfNM=" alt="">
+                    <div class="second-music-cart">
+                        <p class="price-text">$19.99</p>
+                        <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
 
         <!----------------- After music cart ----------------->
@@ -139,30 +166,27 @@
 
         <!----------------- After merch header ----------------->
 
-        <div class="music-cart-container">
-
-            <div class="albumtext">
+    <div class="music-cart-container">
+        <div class="two-flex">
+            <div  class="albumtext">
                 <p class="shop-item-title">T-Shirt</p>
-                <p class="shop-item-title">Coffee Cup</p>
-            </div>
-
-            <div class="first-music-cart">
                 <img class="image" src="https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHQlMjBzaGlydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1546379753-abb7fd8cfb93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29mZmVlJTIwY3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
-            </div>
-
-            <div class="flex-music-cart">
                 <div class="second-music-cart">
                     <p class="price-text">$19.99</p>
                     <button class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
                 </div>
+            </div>
+           
+            <div class="albumtext">
+                <p class="shop-item-title">Coffee Cup</p>
+                <img class="image" src="https://images.unsplash.com/photo-1546379753-abb7fd8cfb93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29mZmVlJTIwY3VwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
                 <div class="second-music-cart">
                     <p class="price-text">$6.99</p>
                     <button  class="btn-cart"><a class="button-links" href="#">ADD TO CART</a></button>
                 </div>
             </div>
-
         </div>
+    </div>
 
         <!----------------- After merch cart ----------------->
 
