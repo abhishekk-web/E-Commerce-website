@@ -143,6 +143,9 @@
     border-bottom: none;
     border-left: none;
     border-right: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
 }
 
@@ -151,6 +154,7 @@
     font-size: 40px;
     font-family: "Metal Mania";
     margin-top: 50px;
+    text-align: center;
 
 }
 
@@ -445,3 +449,61 @@
     margin: 1rem;
         
 }
+
+/* #Products {
+    height: 100px;
+    width: 0px;
+} */
+
+/* .product-container {
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
+
+.product-title {
+    font-weight: bold;
+}
+
+.product-image {
+    height: 400px;
+    width: 400px;
+} */
+
+.product-image{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+#Products {
+    height: 100%;
+    /* display: flex; */
+}
+
+.product-btn {
+    background-color: #56CCF2;
+    border: none;
+    height: 35px;
+    width: 100px;
+    border-radius: 4px;
+}
+
+.product-btn:hover {
+    background-color: darkcyan;
+}
+
+.product-links {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+}
+
+.title-product-div {
+    display: inline-block;
+}
+
+.image-product-div {
+    display: block;
+}
+

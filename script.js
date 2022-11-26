@@ -206,3 +206,30 @@ function purchaseItemCart() {
         noItem();
     }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    axios.get('http://localhost:3000/products').then((data) => {
+        console.log(data);
+        if(data.request.status === 200) {
+            const products = data.data.products;
+            const parentSection = document.getElementById('Products');
+            products.forEach(product => {
+                const productHtml = `
+                
+                    <div id="Products">
+                    
+                    <div class="title-product-div">
+                        <h1 class="product-title">${product.title}</h1>
+                    </div>
+                    <div class="image-product-div">
+                        <img class="product-image" src=${product.imageUrl}>
+                    </div>
+                    <div>
+                        <button class="product-btn"><a class="product-links" href="#">Add to cart</a></button>
+                    </div>
+                    </div>`
+                    parentSection.innerHTML +=productHtml;
+            })
+        }
+    })
+})
