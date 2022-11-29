@@ -100,13 +100,22 @@ function ready() {
         input.addEventListener('change', quantityChanged);
     }
 
-    var addToCartButtons = document.getElementsByClassName("btn-cart");
+    var addToCartButtons = document.getElementsByClassName("product-btn");
+    console.log(addToCartButtons);
     for(var i=0;i< addToCartButtons.length; i++){
+
         var button = addToCartButtons[i];
+        // console.log(button);
         button.addEventListener('click', addToCartClicked)
     }
     
     // purchase
+
+    var cartitems = document.getElementsByClassName("see-the-cart-btn");
+    for(var i=0;i<cartitems.length; i++){
+        var carts = cartitems[i];
+        carts.addEventListener('click', getCartDetails)
+    }
 
     var purchaseItem = document.getElementsByClassName("purchase-nav");
     for(var i=0; i< purchaseItem.length; i++){
@@ -116,6 +125,8 @@ function ready() {
     
 
 }
+
+
 
 function removeCartItem(event) {
 
@@ -136,21 +147,29 @@ function quantityChanged(event) {
 
 function addToCartClicked(event) {
     var button = event.target;
+    console.log(button);
     var shopItem = button.parentElement.parentElement.parentElement;
+    console.log(shopItem);
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
-    var price = shopItem.getElementsByClassName('price-text')[0].innerText;
+    // var price = shopItem.getElementsByClassName('price-text')[0].innerText;
     var imageSrc = shopItem.getElementsByClassName('image')[0].src;
     console.log(title, price, imageSrc);
     addItemToCart(title, price, imageSrc);
     updateCartTotal();
     // createNotification()
+
+    
     
 }
 
 function addItemToCart(title, price, imageSrc) {
     var cartRow = document.createElement('div');
+    
     var cartItems = document.getElementsByClassName('cart-items')[0];
+    console.log(cartItems);
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
+    
+    
     for(var i=0; i<cartItemNames.length; i++){
         if(cartItemNames[i].innerText == title) {
             noCreateNotification();
@@ -178,6 +197,7 @@ createNotification();
 
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0];
+    
     var cartRows = cartItemContainer.getElementsByClassName('cart-flex');
     var total = 0;
     for(var i=0; i< cartRows.length; i++ ){
@@ -198,6 +218,7 @@ function updateCartTotal() {
 
 function purchaseItemCart() {
     var purchase = document.getElementsByClassName("cart-items")[0];
+    
     var cartRows = purchase.getElementsByClassName('cart-flex');
     if(cartRows.length >0) {
         buyCart();
@@ -225,6 +246,8 @@ window.addEventListener('DOMContentLoaded', () => {
                         <img class="product-image" src=${product.imageUrl}>
                     </div>
                     <div>
+                        <h1 class="product-price">${product.price}</h1>
+                    </div>
                     <div id="container"></div>
                         <button onClick="addToCart(${product.id})" class="product-btn"><a class="product-links" href="#">Add to cart</a></button>
                     </div>
@@ -242,12 +265,12 @@ function addToCart(productId){
         if(response.status === 200) {
             responseNotifications(response.data.message);
         }else{
-            throw new Error();
+            throw new Error(response.data.message);
         }
     })
     .catch((err)=> {
         console.log(err);
-
+        responseNotifications(err);
     })
 
 }
@@ -263,4 +286,57 @@ function responseNotifications(message) {
     setTimeout(()=> {
         notif.remove();
     }, 3000);
+}
+
+
+
+
+function getCartDetails(){
+    axios.get('http://localhost:3000/cart')
+    .then(response => {
+        if(response.status === 200){
+            response.data.products.forEach(product => {
+                // added
+                var cartRow = document.createElement('div');
+                //
+                const cartContainer = document.getElementsByClassName("cart-items")[0];
+                var cartItemNames = cartContainer.getElementsByClassName('cart-item-title');
+                for(var i=0; i<cartItemNames.length; i++){
+                            if(cartItemNames[i].innerText == product.title) {
+                                console.log(cartItemNames[i]);
+                                console.log("item is already there");
+                                // message = "item is already there";
+                                responseNotifications(response.data.message)
+                                // noCreateNotification()
+                                return;
+                            }
+                        }
+                        
+                console.log(cartItemNames);
+                cartItemNames  = `<div class="cart-flex">
+                <div>
+                    <p class="cart-item-title">${product.title}</p>
+                    <img class="cart-item-image" src="${product.imageUrl}" height="50" width="50">
+                </div>
+                <div class="cart-price-bottom">
+                    <p class="cart-price">${product.price}</p>
+                    <p>${product.cartItem.quantity}</p>
+                </div>
+                <div class="flex-carts">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button type="button" class="btn-danger">X</button>
+                </div>
+            </div>`;
+            cartRow.innerHTML = cartItemNames;
+            cartContainer.append(cartRow);
+            })
+        }else {
+
+            throw new Error('Something went wrong')
+
+        }
+    })
+    .catch(err=>{
+        responseNotifications(err);
+    })
 }
