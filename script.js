@@ -66,18 +66,18 @@ function buyCart() {
     }, 3000);
 }
 
-function noItem() {
-    const notif = document.createElement("div");
-    notif.classList.add("toast");
+// function noItem() {
+//     const notif = document.createElement("div");
+//     notif.classList.add("toast");
 
-    notif.innerText = "Please check, There is no item in the cart";
+//     notif.innerText = "Please check, There is no item in the cart";
 
-    container.appendChild(notif);
+//     container.appendChild(notif);
 
-    setTimeout(()=> {
-        notif.remove();
-    }, 3000);
-}
+//     setTimeout(()=> {
+//         notif.remove();
+//     }, 3000);
+// }
 
 // add to cart 
 
@@ -108,7 +108,8 @@ function ready() {
 
         var button = addToCartButtons[i];
         // console.log(button);
-        button.addEventListener('click', addToCartClicked)
+        button.addEventListener('click', 
+        addToCartClicked)
     }
     
     // purchase
@@ -119,13 +120,17 @@ function ready() {
         carts.addEventListener('click', getCartDetails)
     }
 
-    var purchaseItem = document.getElementsByClassName("purchase-nav");
-    for(var i=0; i< purchaseItem.length; i++){
-        var inputs = purchaseItem[i];
-        inputs.addEventListener('click', purchaseItemCart);
-    }
+    // var purchaseItem = document.getElementsByClassName("purchase-nav");
+    // for(var i=0; i< purchaseItem.length; i++){
+    //     var inputs = purchaseItem[i];
+    //     inputs.addEventListener('click', purchaseItemCart);
+    // }
     
-
+    // var purchaseItem = document.getElementsByClassName("purchase-nav");
+    // for(var i=0;i<purchaseItem.length; i++){
+    //     var orders = purchaseItem[i];
+    //     orders.addEventListener('click', getOrders);
+    // }
 }
 
 function getProducts(page){
@@ -170,13 +175,32 @@ function getProducts(page){
 
 }
 
-function removeCartItem(event) {
+function removeItem(prodId) {
 
-    var buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.remove();
-    updateCartTotal()
+    axios
+    .delete(`http://localhost:3000/cart-delete-item/${prodId}`)
+    .then((result) => {
+      if (result.status == 200) {
+        var removeButtonClicked = document.getElementsByClassName(
+          "cart-item-remove-button"
+        );
+        for (var i = 0; i < removeButtonClicked.length; i++) {
+          var button = removeButtonClicked[i];
+          button.addEventListener("click", removeCartItem);
+        }
+      } else {
+        throw new Error();
+      }
+    })
+    .catch((err) => console.log(err));
 
 }
+
+function removeCartItem(event) {
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    updateCartTotal();
+  }
 
 function quantityChanged(event) {
     var input = event.target;
@@ -185,90 +209,95 @@ function quantityChanged(event) {
     }
     updateCartTotal();
     
+
 }
 
-function addToCartClicked(event) {
-    var button = event.target;
-    console.log(button);
-    var shopItem = button.parentElement.parentElement.parentElement;
-    console.log(shopItem);
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
-    // var price = shopItem.getElementsByClassName('price-text')[0].innerText;
-    var imageSrc = shopItem.getElementsByClassName('image')[0].src;
-    console.log(title, price, imageSrc);
-    addItemToCart(title, price, imageSrc);
-    updateCartTotal();
-    // createNotification()
+// function addToCartClicked(event) {
+//     var button = event.target;
+//     console.log(button);
+//     var shopItem = button.parentElement.parentElement.parentElement;
+//     console.log(shopItem);
+//     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
+//     // var price = shopItem.getElementsByClassName('price-text')[0].innerText;
+//     var imageSrc = shopItem.getElementsByClassName('image')[0].src;
+//     console.log(title, price, imageSrc);
+//     addItemToCart(title, price, imageSrc);
+//     updateCartTotal();
+//     // createNotification()
 
     
     
-}
+// }
 
-function addItemToCart(title, price, imageSrc) {
-    var cartRow = document.createElement('div');
+// function addItemToCart(title, price, imageSrc) {
+//     var cartRow = document.createElement('div');
     
-    var cartItems = document.getElementsByClassName('cart-items')[0];
-    console.log(cartItems);
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
+//     var cartItems = document.getElementsByClassName('cart-items')[0];
+//     console.log(cartItems);
+//     var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
     
     
-    for(var i=0; i<cartItemNames.length; i++){
-        if(cartItemNames[i].innerText == title) {
-            noCreateNotification();
-            return;
-        }
-    }
-    var cartRowContents = `<div class="cart-flex">
-    <div>
-        <p class="cart-item-title">${title}</p>
-        <img class="cart-item-image" src="${imageSrc}" height="50" width="50">
-    </div>
-    <div class="cart-price-bottom">
-        <p class="cart-price">${price}</p>
-    </div>
-    <div class="flex-carts">
-        <input class="cart-quantity-input" type="number" value="1">
-        <button type="button" class="btn-danger">X</button>
-    </div>
-</div>`;
-cartRow.innerHTML = cartRowContents;
-cartItems.append(cartRow);
-createNotification();
-}
+//     for(var i=0; i<cartItemNames.length; i++){
+//         if(cartItemNames[i].innerText == title) {
+//             noCreateNotification();
+//             return;
+//         }
+//     }
+//     var cartRowContents = `<div class="cart-flex">
+//     <div>
+//         <p class="cart-item-title">${title}</p>
+//         <img class="cart-item-image" src="${imageSrc}" height="50" width="50">
+//     </div>
+//     <div class="cart-price-bottom">
+//         <p class="cart-price">${price}</p>
+//     </div>
+//     <div class="flex-carts">
+//         <input class="cart-quantity-input" type="number" value="1">
+//         <button onclick="${removeCartItem}" type="button" class="btn-danger">X</button>
+//     </div>
+// </div>`;
+// cartRow.innerHTML = cartRowContents;
+// cartItems.append(cartRow);
+// createNotification();
+// }
 
 
-function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0];
-    
-    var cartRows = cartItemContainer.getElementsByClassName('cart-flex');
-    var total = 0;
-    for(var i=0; i< cartRows.length; i++ ){
+function updateCartTotal()
+{
+      var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+      var cartRows = cartItemContainer.getElementsByClassName('show-cart'); 
+      var total =0;
+      console.log(cartRows)
+      for(var i =0; i<cartRows.length;i++)
+      {
         var cartRow = cartRows[i];
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0];
-        var quantityElement = cartRow.getElementsByClassName("cart-quantity-input")[0];
-        var price = parseFloat(priceElement.innerText.replace('$', ''));
-        console.log(price);
-        var quantity = quantityElement.value;
-        total = total + (price * quantity);
-        console.log(price * quantity);
-    }
-    total = Math.round(total * 100) / 100;
-    document.getElementsByClassName('dollar-nav')[0].innerText = '$' + total;
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-row-item-quantity')[0]
+        var price = parseFloat(priceElement.innerText)
+        var quantity = quantityElement.value
+        total = total + (price*quantity);
+
+      }
+      total = Math.round(total);
+      console.log(total);
+      document.getElementsByClassName('dollar-nav')[0].innerText = '$' + total;
 }
+
+
 
 // notification of purchase
 
-function purchaseItemCart() {
-    var purchase = document.getElementsByClassName("cart-items")[0];
+// function purchaseItemCart() {
+//     var purchase = document.getElementsByClassName("cart-items")[0];
     
-    var cartRows = purchase.getElementsByClassName('cart-flex');
-    if(cartRows.length >0) {
-        buyCart();
-    }
-    else{
-        noItem();
-    }
-}
+//     var cartRows = purchase.getElementsByClassName('cart-flex');
+//     if(cartRows.length >0) {
+//         buyCart();
+//     }
+//     else{
+//         noItem();
+//     }
+// }
 //
 
 window.addEventListener('DOMContentLoaded', (data) => {
@@ -278,22 +307,7 @@ const page = 1;
     
 })
 
-function addToCart(productId){
 
-    axios.post('http://localhost:3000/cart', {productId : productId})
-    .then(response => {
-        if(response.status === 200) {
-            responseNotifications(response.data.message);
-        }else{
-            throw new Error(response.data.message);
-        }
-    })
-    .catch((err)=> {
-        console.log(err);
-        responseNotifications(err);
-    })
-
-}
 
 function showPagination(
     currentPage,
@@ -344,54 +358,120 @@ function responseNotifications(message) {
 }
 
 
+//
 
+function addToCart(productId){
+
+    var cartTitle = document.getElementsByClassName("cart-title");
+    console.log(cartTitle);
+    axios.post('http://localhost:3000/cart', {productId : productId})
+    .then(response => {
+        // console.log(response);
+        if(response.status === 200) {
+           
+            console.log(response);
+            responseNotifications(response.data.message);
+
+        }else{
+            throw new Error(response.data.message);
+        }
+    })
+    .catch((err)=> {
+        console.log(err);
+        responseNotifications(err);
+    })
+
+}
 
 function getCartDetails(){
+    
     axios.get('http://localhost:3000/cart')
     .then(response => {
-        if(response.status === 200){
-            response.data.products.forEach(product => {
-                // added
-                var cartRow = document.createElement('div');
-                //
-                const cartContainer = document.getElementsByClassName("cart-items")[0];
-                var cartItemNames = cartContainer.getElementsByClassName('cart-item-title');
-                for(var i=0; i<cartItemNames.length; i++){
-                            if(cartItemNames[i].innerText == product.title) {
-                                console.log(cartItemNames[i]);
-                                console.log("item is already there");
-                                // message = "item is already there";
-                                // responseNotifications(response.data.message)
-                                // noCreateNotification()
-                                return;
-                            }
-                        }
-                        
-                console.log(cartItemNames);
-                cartItemNames  = `<div class="cart-flex">
-                <div>
-                    <p class="cart-item-title">${product.title}</p>
-                    <img class="cart-item-image" src="${product.imageUrl}" height="50" width="50">
-                </div>
-                <div class="cart-price-bottom">
-                    <p class="cart-price">${product.price}</p>
-                    <p>${product.cartItem.quantity}</p>
-                </div>
-                <div class="flex-carts">
-                    <input class="cart-quantity-input" type="number" value="1">
-                    <button type="button" class="btn-danger">X</button>
-                </div>
-            </div>`;
-            cartRow.innerHTML = cartItemNames;
-            cartContainer.append(cartRow);
-            })
-        }else {
+        console.log(response);
+        var parentElement = document.getElementById("cart-item");
+        console.log(parentElement);
+        var carts = parentElement.getElementsByClassName("cart-title");
+        console.log(carts);
 
-            throw new Error('Something went wrong')
-
+        for(var i=0;i<carts.length; i++ ){
+            var cartsTwo = carts[i].innerText;
+            console.log(cartsTwo);
         }
+
+        // for(var i=0;i<carts.length; i++ ){
+        //     console.log(carts[i]);
+        // }
+        for (let i = 0; i < response.data.products.length; i++) {
+        var titles = response.data.products[i].title;
+        }
+        // var cartsTwo = cartsOne.getElementsByClassName("cart-items-row-column");
+        // console.log(cartsTwo);
+        // var cartTitles = document.getElementsByClassName("cart-title");
+        // console.log(cartTitles);
+        if(cartsTwo == titles){
+            console.log("item is already there");
+        }
+        
+      let container = "";
+      for (let i = 0; i < response.data.products.length; i++) {
+        const title = response.data.products[i].title;
+        let imageUrl = response.data.products[i].imageUrl;
+        let price = response.data.products[i].price;
+        let prodId = response.data.products[i].id;
+        
+        container += `
+            <div class="show-cart" id="show-carts">
+              <div class="cart-items-row-column">
+                <img src="${imageUrl}" class="cart-images" alt="" width="50" >
+                <span class="cart-title">${title}</span>
+              </div>
+            
+              <div >
+                <span class="cart-price">${price}</span>
+                <input type="number"  class="cart-row-item-quantity"  value="1">
+                <button class="cart-item-remove-button" onclick="removeItem(${prodId})">REMOVE</button>
+              </div>
+            </div>`;
+        
+      }
+      parentElement.innerHTML = container;
+      updateCartTotal();
     })
     .catch(err=>{
         responseNotifications(err);
     })
 }
+
+window.addEventListener('DOMContentLoaded',()=>{
+    axios.get("http://localhost:3000/orders")
+    .then(response =>{
+        console.log(response)
+       let purchase = document.getElementById('purchase')
+       for(let i =0;i<response.data.products.length;i++)
+       {
+            
+        
+        for(let j=0;j<response.data.products[i].products.length;j++)
+        {
+          
+           purchase.innerHTML+=`<div>
+           orderid:${response.data.products[i].id}-${response.data.products[i].products[j].price} -
+           <img src=${response.data.products[i].products[j].imageUrl} width="100">
+           </div>`
+        }
+    }
+     
+    })
+    .catch(err => console.log(err))
+ })
+
+ const purchaseBtn = document.getElementById('purchase-btn');
+
+ purchaseBtn.addEventListener('click',(productId)=>{
+     console.log("purchaseid")
+     axios.post(`http://localhost:3000/createorder`,{productId : productId})
+    .then(response =>{
+     console.log("purchase",response)
+    })
+     .catch(err =>console.log(err))
+ })
