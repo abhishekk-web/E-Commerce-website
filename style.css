@@ -532,3 +532,8 @@
     background-color: darkcyan;
     color: white;
 }
+
+#nav {
+    overflow-y: scroll;
+    height: 83%;
+}
