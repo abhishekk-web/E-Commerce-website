@@ -154,7 +154,7 @@ function getProducts(page){
                         <img class="product-image" src=${product.imageUrl}>
                     </div>
                     <div>
-                        <h1 class="product-price">${product.price}</h1>
+                        <h1 class="product-price">${product.price} $</h1>
                     </div>
                     <div id="container"></div>
                         <button onClick="addToCart(${product.id})" class="product-btn"><a class="product-links" href="#">Add to cart</a></button>
@@ -427,7 +427,7 @@ function getCartDetails(){
               </div>
             
               <div >
-                <span class="cart-price">${price}</span>
+                <span class="cart-price">${price} $</span>
                 <input type="number"  class="cart-row-item-quantity"  value="1">
                 <button class="cart-item-remove-button" onclick="removeItem(${prodId})">REMOVE</button>
               </div>

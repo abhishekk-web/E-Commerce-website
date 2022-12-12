@@ -537,3 +537,7 @@
     overflow-y: scroll;
     height: 83%;
 }
+
+.cart-title{
+    font-weight: bold;
+}
